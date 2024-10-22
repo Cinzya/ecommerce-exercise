@@ -1,6 +1,6 @@
-# Productenlijst
+# Ecommerce Website
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a Dummy project for an electronic Ecommerce Website based on the [Clicon - eCommerce Marketplace Website Figma Template](https://www.figma.com/community/file/1271751279140741643/clicon-ecommerce-marketplace-website-figma-template-community) by [Templatecookie](https://www.figma.com/@templatecookie). This project is built using Vue 3, Vite, Tailwind, and TypeScript. For testing purposes Vitest and Playwright are used.
 
 ## Recommended IDE Setup
 
