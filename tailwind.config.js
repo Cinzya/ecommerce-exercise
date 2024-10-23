@@ -2,6 +2,9 @@ module.exports = {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      'Public Sans': ['Public Sans', 'sans-serif'],
+    },
     extend: {
       colors: {
         gray: {
