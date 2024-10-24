@@ -4,8 +4,10 @@ import SearchBar from './SearchBar.vue'
 <template>
   <header class="bg-secondary-700 text-white">
     <!-- Top Nav -->
-    <nav class="flex h-[52px] w-full items-center border-b-2 border-white/10">
-      <div class="mx-auto w-full max-w-screen-xl">
+    <nav
+      class="hidden h-[52px] w-full items-center border-b-2 border-white/10 lg:flex"
+    >
+      <div class="mx-auto w-full max-w-screen-xl px-5">
         <p class="text-sm font-normal leading-tight text-white">
           Welcome to the Clicon online eCommerce store.
         </p>
@@ -14,10 +16,10 @@ import SearchBar from './SearchBar.vue'
     </nav>
     <!-- Middle Nav -->
     <nav
-      class="mx-auto flex h-[88px] w-full max-w-screen-xl items-center justify-between"
+      class="mx-auto flex h-[88px] w-full max-w-screen-xl items-center justify-between px-5"
     >
       <img src="@/assets/logo.svg" alt="Clicon Logo" />
-      <SearchBar text="Search for anything..." class="w-[578px]" />
+      <SearchBar text="Search for anything..." class="mx-10 w-[578px]" />
       <div class="inline-flex flex-row items-start justify-start gap-6">
         <div class="relative">
           <PhShoppingCartSimple :size="32" />
@@ -34,8 +36,8 @@ import SearchBar from './SearchBar.vue'
       </div>
     </nav>
     <!-- Bottom Nav -->
-    <nav class="flex h-20 items-center bg-white text-gray-600">
-      <div class="mx-auto flex w-full max-w-screen-xl justify-between">
+    <nav class="hidden h-20 items-center bg-white text-gray-600 lg:flex">
+      <div class="mx-auto flex w-full max-w-screen-xl justify-between px-5">
         <ul class="flex h-full items-center justify-start">
           <li
             class="mr-6 flex items-center bg-gray-50 px-6 py-3 text-sm font-semibold text-gray-900"
@@ -49,8 +51,7 @@ import SearchBar from './SearchBar.vue'
             <PhArrowsCounterClockwise :size="24" class="mr-1.5" /> Compare
           </li>
           <li class="mr-6 flex items-center text-sm font-normal">
-            <PhArrowsCounterClockwise :size="24" class="mr-1.5" /> Customer
-            Support
+            <PhHeadphones :size="24" class="mr-1.5" /> Customer Support
           </li>
           <li class="mr-6 flex items-center text-sm font-normal">
             <PhInfo :size="24" class="mr-1.5" /> Need Help
