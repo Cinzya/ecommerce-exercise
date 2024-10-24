@@ -16,10 +16,13 @@ import SearchBar from './SearchBar.vue'
     </nav>
     <!-- Middle Nav -->
     <nav
-      class="mx-auto flex h-[88px] w-full max-w-screen-xl items-center justify-between px-5"
+      class="mx-auto flex h-[176px] w-full max-w-screen-xl flex-wrap items-center justify-between px-5 sm:h-[88px] sm:flex-nowrap"
     >
       <img src="@/assets/logo.svg" alt="Clicon Logo" />
-      <SearchBar text="Search for anything..." class="mx-10 w-[578px]" />
+      <SearchBar
+        text="Search for anything..."
+        class="order-3 w-full sm:order-none sm:mx-10 sm:max-w-[578px]"
+      />
       <div class="inline-flex flex-row items-start justify-start gap-6">
         <div class="relative">
           <PhShoppingCartSimple :size="32" />
