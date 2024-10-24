@@ -1,6 +1,6 @@
 # Ecommerce Website
 
-This is a Dummy project for an electronic Ecommerce Website based on the [Clicon - eCommerce Marketplace Website Figma Template](https://www.figma.com/community/file/1271751279140741643/clicon-ecommerce-marketplace-website-figma-template-community) by [Templatecookie](https://www.figma.com/@templatecookie). This project is built using Vue 3, Vite, Tailwind, and TypeScript. For testing purposes Vitest and Playwright are used.
+This is a Dummy project for an electronic Ecommerce Website losely based on the [Clicon - eCommerce Marketplace Website Figma Template](https://www.figma.com/community/file/1271751279140741643/clicon-ecommerce-marketplace-website-figma-template-community) by [Templatecookie](https://www.figma.com/@templatecookie). This project is built using Vue 3, Vite, Tailwind CSS, and TypeScript. For testing purposes Vitest and Playwright are being used.
 
 ## Recommended IDE Setup
 
