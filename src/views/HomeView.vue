@@ -7,5 +7,8 @@ import CategorySidebar from '@/components/CategorySidebar.vue'
     <aside>
       <CategorySidebar />
     </aside>
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
