@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useCategoryStore } from '@/stores/category'
-const { categories } = useCategoryStore()
+const categoryStore = useCategoryStore()
 </script>
 
 <template>
   <h2 class="mb-4 text-base font-medium uppercase text-gray-900">Category</h2>
 
   <div
-    v-for="category in categories"
-    :key="category.name"
+    v-for="category in categoryStore.$state.categories"
+    :key="category.id"
     class="mb-3 flex items-center"
   >
     <input

@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import CategorySidebar from '@/components/CategorySidebar.vue'
 </script>
 
 <template>
-  <main>
-    <h1>Home</h1>
-  </main>
+  <div class="mx-auto flex max-w-screen-xl px-5">
+    <aside>
+      <CategorySidebar />
+    </aside>
+  </div>
 </template>
