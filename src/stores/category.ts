@@ -9,8 +9,6 @@ interface Category {
 
 export interface CategoryStore {
   categories: Category[]
-  selectedCategory: number | null
-  setSelectedCategory: number | null
 }
 
 export const useCategoryStore = defineStore('category', () => {
@@ -64,15 +62,8 @@ export const useCategoryStore = defineStore('category', () => {
       ],
     },
   ])
-  const selectedCategory = ref<number | null>(null)
-
-  const setSelectedCategory = (index: number) => {
-    setSelectedCategory(index)
-  }
 
   return {
     categories,
-    selectedCategory,
-    setSelectedCategory,
   }
 })
