@@ -2,11 +2,25 @@
 import fictionalArticles from '@/assets/fictional_articles.json'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+
+interface Article {
+  name: string
+  category: number
+  image: string
+  msrp: number
+  rating: number
+  reviews: number
+}
+
 const route = useRoute()
-const data = computed(() =>
-  fictionalArticles.filter(
-    article => article.category.toString() === route.params.category.toString(),
-  ),
+const filterArticlesByCategory = (articles: Article[], category: number) => {
+  return articles.filter(
+    article => article.category.toString() === category.toString(),
+  )
+}
+
+const filteredArticles = computed(() =>
+  filterArticlesByCategory(fictionalArticles, Number(route.params.category)),
 )
 </script>
 <template>
@@ -15,8 +29,8 @@ const data = computed(() =>
   >
     <!-- Card -->
     <div
-      v-for="article in data"
-      :key="data.indexOf(article)"
+      v-for="article in filteredArticles"
+      :key="filteredArticles.indexOf(article)"
       class="hover:shadow-card w-full rounded-[3px] border-[2px] border-gray-100 bg-white p-4 transition-all duration-200 ease-in-out"
     >
       <!-- Thumbnail -->
@@ -65,9 +79,9 @@ const data = computed(() =>
         {{ article.name }}
       </p>
       <!-- Price -->
-      <span class="text-sm font-semibold leading-tight text-secondary-500"
-        >€{{ article.msrp }}</span
-      >
+      <span class="text-sm font-semibold leading-tight text-secondary-500">
+        €{{ article.msrp }}
+      </span>
     </div>
   </div>
 </template>
