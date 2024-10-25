@@ -18,7 +18,31 @@ const data = computed(() =>
       class="hover:shadow-card w-full rounded-[3px] border-[2px] border-gray-100 bg-white p-4 transition-all duration-200 ease-in-out"
     >
       <!-- Thumbnail -->
-      <img :src="article.image" :alt="article.name" class="mb-4" />
+      <div class="group relative">
+        <img :src="article.image" :alt="article.name" class="mb-4" />
+        <div
+          class="absolute right-0 top-0 flex h-full w-full items-center justify-between bg-black/20 px-4 opacity-0 transition-all duration-200 ease-in-out group-hover:opacity-100"
+        >
+          <button
+            class="group/heart flex h-11 w-11 items-center justify-center rounded-full bg-white hover:bg-primary-500"
+          >
+            <PhHeart :size="24" class="group-hover/heart:text-white" />
+          </button>
+          <button
+            class="group/cart flex h-11 w-11 items-center justify-center rounded-full bg-white hover:bg-primary-500"
+          >
+            <PhShoppingCartSimple
+              :size="24"
+              class="group-hover/cart:text-white"
+            />
+          </button>
+          <button
+            class="group/view flex h-11 w-11 items-center justify-center rounded-full bg-white hover:bg-primary-500"
+          >
+            <PhEye :size="24" class="group-hover/view:text-white" />
+          </button>
+        </div>
+      </div>
       <!-- Rating -->
       <div
         class="mb-2 flex items-center text-xs font-normal leading-none text-gray-500"
