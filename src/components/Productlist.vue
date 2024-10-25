@@ -15,7 +15,7 @@ const data = computed(() =>
     <div
       v-for="article in data"
       :key="data.indexOf(article)"
-      class="w-full rounded-[3px] border-[2px] border-gray-100 bg-white p-4"
+      class="hover:shadow-card w-full rounded-[3px] border-[2px] border-gray-100 bg-white p-4 transition-all duration-200 ease-in-out"
     >
       <!-- Thumbnail -->
       <img :src="article.image" :alt="article.name" class="mb-4" />
