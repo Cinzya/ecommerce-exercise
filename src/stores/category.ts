@@ -26,7 +26,7 @@ export const useCategoryStore = defineStore('category', () => {
       ],
     },
     {
-      id: 2,
+      id: 4,
       name: 'Computer Accessories',
       subcategories: [
         'Laptop Bags',
@@ -50,7 +50,7 @@ export const useCategoryStore = defineStore('category', () => {
       ],
     },
     {
-      id: 4,
+      id: 2,
       name: 'Headphones',
       subcategories: [
         'In-Ear Headphones',
