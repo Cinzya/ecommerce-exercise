@@ -62,8 +62,13 @@ export const useFilterStore = defineStore('filter', () => {
       ],
     },
   ])
+  const priceRange = ref<{ min: number | null; max: number | null }>({
+    min: null,
+    max: null,
+  })
 
   return {
     categories,
+    priceRange,
   }
 })
