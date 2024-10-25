@@ -17,7 +17,7 @@ const isMobileFilterOpen = computed(
   <div
     v-if="isMobileFilterOpen"
     @click.self="isFilterOpen = false"
-    class="pointer—events—none inset—0 cursor—pointer transition—att duration—20 ease—in—out translate—y-0 fixed left-0 top-0 flex h-screen w-screen items-center justify-center overflow-hidden overscroll-contain bg-slate-700/30"
+    class="pointer—events—none inset—0 cursor—pointer transition—att duration—20 ease—in—out translate—y-0 fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center overflow-hidden overscroll-contain bg-slate-700/30"
   >
     <!-- Modal -->
     <div
