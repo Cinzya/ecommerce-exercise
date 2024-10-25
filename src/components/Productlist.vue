@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import fictionalArticles from '@/assets/fictional_articles.json'
+import { useFilterStore } from '@/stores/filter'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -13,15 +14,43 @@ interface Article {
 }
 
 const route = useRoute()
+const filterStore = useFilterStore()
+const filters = filterStore.$state
+
 const filterArticlesByCategory = (articles: Article[], category: number) => {
   return articles.filter(
     article => article.category.toString() === category.toString(),
   )
 }
 
-const filteredArticles = computed(() =>
-  filterArticlesByCategory(fictionalArticles, Number(route.params.category)),
-)
+const filterArticlesByPrice = (
+  articles: Article[],
+  priceRange: { min: number; max: number },
+) => {
+  return articles.filter(
+    article => article.msrp >= priceRange.min && article.msrp <= priceRange.max,
+  )
+}
+
+const filteredArticles = computed(() => {
+  let articles
+
+  // Category filter
+  articles = filterArticlesByCategory(
+    fictionalArticles,
+    Number(route.params.category),
+  )
+
+  // Price filter
+  if (filters.priceRange.min !== null && filters.priceRange.max !== null) {
+    articles = filterArticlesByPrice(articles, {
+      min: filters.priceRange.min,
+      max: filters.priceRange.max,
+    })
+  }
+
+  return articles
+})
 </script>
 <template>
   <div
