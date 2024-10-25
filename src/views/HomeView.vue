@@ -5,11 +5,11 @@ import FilterModal from '@/components/FilterModal.vue'
 
 <template>
   <div class="mx-auto flex max-w-screen-xl flex-col px-5 pt-4 lg:flex-row">
-    <aside class="hidden lg:block">
+    <aside class="mr-6 hidden w-[312px] shrink-0 lg:block">
       <CategorySidebar />
     </aside>
     <FilterModal class="lg:hidden" />
-    <main>
+    <main class="w-full">
       <router-view />
     </main>
   </div>
