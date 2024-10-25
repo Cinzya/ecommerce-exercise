@@ -41,6 +41,7 @@ const data = computed(() =>
           >
             <PhEye :size="24" class="group-hover/view:text-white" />
           </button>
+          <!-- TODO: Add onClick event to each button + components / routes for each action -->
         </div>
       </div>
       <!-- Rating -->
