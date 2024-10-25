@@ -7,11 +7,11 @@ interface Category {
   subcategories: string[]
 }
 
-export interface CategoryStore {
+export interface FilterStore {
   categories: Category[]
 }
 
-export const useCategoryStore = defineStore('category', () => {
+export const useFilterStore = defineStore('filter', () => {
   const categories = ref<Category[]>([
     {
       id: 1,

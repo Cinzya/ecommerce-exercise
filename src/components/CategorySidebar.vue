@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useCategoryStore } from '@/stores/category'
+import { useFilterStore } from '@/stores/filter'
 
-const categoryStore = useCategoryStore()
+const filterStore = useFilterStore()
 </script>
 
 <template>
   <h2 class="mb-4 text-base font-medium uppercase text-gray-900">Category</h2>
 
   <label
-    v-for="category in categoryStore.$state.categories"
+    v-for="category in filterStore.$state.categories"
     :key="category.id"
     class="mb-3 flex items-center text-sm font-medium text-gray-900"
   >
