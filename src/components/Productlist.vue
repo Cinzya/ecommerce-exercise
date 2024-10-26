@@ -33,7 +33,10 @@ const filteredArticles = computed(() => {
   )
 
   // Price filter
-  if (filters.priceRange.min !== null && filters.priceRange.max !== null) {
+  if (
+    typeof filters.priceRange.min === 'number' &&
+    typeof filters.priceRange.max === 'number'
+  ) {
     articles = filterArticlesByPrice(articles, {
       min: filters.priceRange.min,
       max: filters.priceRange.max,
