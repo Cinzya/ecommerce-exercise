@@ -32,6 +32,7 @@ import SearchBar from './SearchBar.vue'
       />
       <div class="inline-flex flex-row items-start justify-start gap-6">
         <div class="relative">
+          <!-- Shopping Card -->
           <PhShoppingCartSimple :size="32" />
           <div
             class="absolute -right-2 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-secondary-700 bg-white"
@@ -41,7 +42,11 @@ import SearchBar from './SearchBar.vue'
             >
           </div>
         </div>
-        <PhHeart :size="32" />
+        <!-- Wishlist  -->
+        <RouterLink to="wishlist">
+          <PhHeart :size="32" />
+        </RouterLink>
+        <!-- User Profile -->
         <PhUser :size="32" />
       </div>
     </nav>
