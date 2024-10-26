@@ -1,4 +1,5 @@
 interface Article {
+  id: string
   brand: string
   name: string
   short_description: string
