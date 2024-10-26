@@ -9,6 +9,8 @@ interface Category {
 
 export interface FilterStore {
   categories: Category[]
+  priceRange: { min: number | null; max: number | null }
+  brands: string[]
 }
 
 export const useFilterStore = defineStore('filter', () => {
@@ -66,9 +68,11 @@ export const useFilterStore = defineStore('filter', () => {
     min: null,
     max: null,
   })
+  const brands = ref<string[]>([])
 
   return {
     categories,
     priceRange,
+    brands,
   }
 })

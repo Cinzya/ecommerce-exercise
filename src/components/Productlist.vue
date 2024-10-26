@@ -40,6 +40,13 @@ const filteredArticles = computed(() => {
     })
   }
 
+  // Brand filter
+  if (filters.brands.length > 0) {
+    articles = articles.filter(article =>
+      filters.brands.includes(article.brand),
+    )
+  }
+
   return articles
 })
 </script>

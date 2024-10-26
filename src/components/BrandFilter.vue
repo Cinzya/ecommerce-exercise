@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useFilterStore } from '@/stores/filter'
+const filterStore = useFilterStore()
 import fictionalArticles from '@/assets/fictional_articles.json'
 import { useRoute } from 'vue-router'
 const route = useRoute()
@@ -37,7 +38,20 @@ const uniqueBrands = computed(() =>
       :key="uniqueBrands.indexOf(brand)"
       class="mb-3 flex items-center text-sm font-normal leading-tight"
     >
-      <input type="checkbox" class="mr-2 h-5 w-5 accent-primary-500" />
+      <input
+        type="checkbox"
+        class="mr-2 h-5 w-5 accent-primary-500"
+        @input="
+          e => {
+            const brands = filterStore.$state.brands
+            if ((e.target as HTMLInputElement).checked) {
+              filterStore.$state.brands = [...brands, brand]
+            } else {
+              filterStore.$state.brands = brands.filter(b => b !== brand)
+            }
+          }
+        "
+      />
       {{ brand }}
     </label>
   </div>
