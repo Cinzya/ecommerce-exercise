@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import CategorySidebar from './CategorySidebar.vue'
+import PriceFilter from './PriceFilter.vue'
 const isFilterOpen = ref(false)
 const isMobileFilterOpen = computed(
   () => isFilterOpen.value && window.innerWidth < 1024,
@@ -28,6 +29,7 @@ const isMobileFilterOpen = computed(
         <button @click="isFilterOpen = false"><PhX :size="20" /></button>
       </div>
       <CategorySidebar />
+      <PriceFilter />
     </div>
   </div>
 </template>
