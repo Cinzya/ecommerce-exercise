@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import CategorySidebar from '@/components/CategorySidebar.vue'
 import FilterModal from '@/components/FilterModal.vue'
-import PriceRange from '@/components/PriceRange.vue'
+import PriceRange from '@/components/PriceFilter.vue'
+import BrandFilter from '@/components/BrandFilter.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import PriceRange from '@/components/PriceRange.vue'
     <aside class="mr-6 hidden w-[300px] shrink-0 lg:block">
       <CategorySidebar />
       <PriceRange />
+      <BrandFilter />
     </aside>
     <FilterModal class="lg:hidden" />
     <main class="w-full">
