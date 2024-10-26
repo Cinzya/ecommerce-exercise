@@ -31,13 +31,13 @@ const uniqueBrands = computed(() =>
     Popular Brands
   </h2>
 
-  <div class="mb-6 border-b border-gray-100 pb-6">
+  <div class="mb-6 grid grid-cols-2 border-b border-gray-100 pb-6">
     <label
       v-for="brand in uniqueBrands"
       :key="uniqueBrands.indexOf(brand)"
-      for=""
+      class="mb-3 flex items-center text-sm font-normal leading-tight"
     >
-      <input type="checkbox" />
+      <input type="checkbox" class="mr-2 h-5 w-5 accent-primary-500" />
       {{ brand }}
     </label>
   </div>
