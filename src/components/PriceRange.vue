@@ -9,6 +9,11 @@ const predefinedRanges = [
   { label: '€500 to €1000', min: 500, max: 1000 },
   { label: '€1,000 to €10,000', min: 1000, max: 10000 },
 ]
+
+function setPriceRange(min: number, max: number) {
+  filterStore.$state.priceRange.min = min
+  filterStore.$state.priceRange.max = max
+}
 </script>
 <template>
   <div>
@@ -32,29 +37,24 @@ const predefinedRanges = [
       />
     </div>
 
-    <!-- Hidden Inputs to bind the Data -->
-    <input
-      type="range"
-      step="1"
-      v-model="filterStore.$state.priceRange.min"
-      class="pointer-events-none absolute z-20 h-2 w-full cursor-pointer appearance-none opacity-0"
-    />
-    <input
-      type="range"
-      step="1"
-      v-model="filterStore.$state.priceRange.max"
-      class="pointer-events-none absolute z-20 h-2 w-full cursor-pointer appearance-none opacity-0"
-    />
-
-    <div class="mt-2 flex flex-col">
+    <div class="mt-3 flex flex-col">
       <label
         v-for="range in predefinedRanges"
         :key="predefinedRanges.indexOf(range)"
-        for=""
         class="mt-2"
       >
-        <input type="radio" :id="range.label" name="range-radio" />
-        <span class="ml-2 text-sm font-normal leading-tight">
+        <input
+          class="mr-2 h-4 w-4 border-gray-300 bg-gray-100 accent-primary-500 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-600"
+          type="radio"
+          :id="range.label"
+          name="range-radio"
+          @input="setPriceRange(range.min, range.max)"
+          :checked="
+            filterStore.$state.priceRange.min === range.min &&
+            filterStore.$state.priceRange.max === range.max
+          "
+        />
+        <span class="text-sm font-normal leading-tight">
           {{ range.label }}
         </span>
       </label>

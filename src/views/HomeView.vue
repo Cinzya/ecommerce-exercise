@@ -5,8 +5,10 @@ import PriceRange from '@/components/PriceRange.vue'
 </script>
 
 <template>
-  <div class="mx-auto flex max-w-screen-xl flex-col px-5 pt-4 lg:flex-row">
-    <aside class="mr-6 hidden w-[312px] shrink-0 lg:block">
+  <div
+    class="mx-auto flex max-w-screen-xl flex-col overflow-hidden px-5 pt-4 lg:flex-row"
+  >
+    <aside class="mr-6 hidden w-[300px] shrink-0 lg:block">
       <CategorySidebar />
       <PriceRange />
     </aside>
