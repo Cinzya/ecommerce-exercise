@@ -4,15 +4,6 @@ import { useFilterStore } from '@/stores/filter'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
-interface Article {
-  name: string
-  category: number
-  image: string
-  msrp: number
-  rating: number
-  reviews: number
-}
-
 const route = useRoute()
 const filterStore = useFilterStore()
 const filters = filterStore.$state
@@ -60,7 +51,7 @@ const filteredArticles = computed(() => {
     <div
       v-for="article in filteredArticles"
       :key="filteredArticles.indexOf(article)"
-      class="hover:shadow-card w-full rounded-[3px] border-[2px] border-gray-100 bg-white p-4 transition-all duration-200 ease-in-out"
+      class="w-full rounded-[3px] border-[2px] border-gray-100 bg-white p-4 transition-all duration-200 ease-in-out hover:shadow-card"
     >
       <!-- Thumbnail -->
       <div class="group relative">
