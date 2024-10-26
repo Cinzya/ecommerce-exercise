@@ -2,6 +2,7 @@
 import { useFilterStore } from '@/stores/filter'
 const filterStore = useFilterStore()
 const predefinedRanges = [
+  { label: 'All Prices', min: null, max: null },
   { label: 'Under €20', min: 0, max: 20 },
   { label: '€25 to €100', min: 25, max: 100 },
   { label: '€100 to €300', min: 100, max: 300 },
