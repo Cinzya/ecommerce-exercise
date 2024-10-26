@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { useFilterStore } from '@/stores/filter'
 const filterStore = useFilterStore()
+const predefinedRanges = [
+  { label: 'Under €20', min: 0, max: 20 },
+  { label: '€25 to €100', min: 25, max: 100 },
+  { label: '€100 to €300', min: 100, max: 300 },
+  { label: '€300 to €500', min: 200, max: 500 },
+  { label: '€500 to €1000', min: 500, max: 1000 },
+  { label: '€1,000 to €10,000', min: 1000, max: 10000 },
+]
 </script>
 <template>
   <div>
@@ -22,6 +30,34 @@ const filterStore = useFilterStore()
         min="0"
         v-model="filterStore.$state.priceRange.max"
       />
+    </div>
+
+    <!-- Hidden Inputs to bind the Data -->
+    <input
+      type="range"
+      step="1"
+      v-model="filterStore.$state.priceRange.min"
+      class="pointer-events-none absolute z-20 h-2 w-full cursor-pointer appearance-none opacity-0"
+    />
+    <input
+      type="range"
+      step="1"
+      v-model="filterStore.$state.priceRange.max"
+      class="pointer-events-none absolute z-20 h-2 w-full cursor-pointer appearance-none opacity-0"
+    />
+
+    <div class="mt-2 flex flex-col">
+      <label
+        v-for="range in predefinedRanges"
+        :key="predefinedRanges.indexOf(range)"
+        for=""
+        class="mt-2"
+      >
+        <input type="radio" :id="range.label" name="range-radio" />
+        <span class="ml-2 text-sm font-normal leading-tight">
+          {{ range.label }}
+        </span>
+      </label>
     </div>
   </div>
 </template>
