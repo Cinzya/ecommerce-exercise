@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import fictionalArticles from '@/assets/fictional_articles.json'
 import { useFilterStore } from '@/stores/filter'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -52,6 +52,13 @@ const filteredArticles = computed(() => {
 
   return articles
 })
+
+watch(
+  () => route.params.category,
+  () => {
+    filterStore.$state.brands = []
+  },
+)
 </script>
 <template>
   <div

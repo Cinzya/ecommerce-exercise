@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import CategorySidebar from './CategorySidebar.vue'
 import PriceFilter from './PriceFilter.vue'
+import BrandFilter from './BrandFilter.vue'
 const isFilterOpen = ref(false)
 const isMobileFilterOpen = computed(
   () => isFilterOpen.value && window.innerWidth < 1024,
@@ -18,7 +19,7 @@ const isMobileFilterOpen = computed(
   <div
     v-if="isMobileFilterOpen"
     @click.self="isFilterOpen = false"
-    class="pointer—events—none inset—0 cursor—pointer transition—att duration—20 ease—in—out translate—y-0 fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center overflow-hidden overscroll-contain bg-slate-700/30"
+    class="modal pointer—events—none inset—0 cursor—pointer transition—att duration—20 ease—in—out translate—y-0 fixed left-0 top-0 z-10 flex h-screen w-screen items-end justify-center overflow-hidden overscroll-contain bg-slate-700/30"
   >
     <!-- Modal -->
     <div
@@ -30,6 +31,7 @@ const isMobileFilterOpen = computed(
       </div>
       <CategorySidebar />
       <PriceFilter />
+      <BrandFilter />
     </div>
   </div>
 </template>

@@ -35,7 +35,7 @@ const uniqueBrands = computed(() =>
   <div class="mb-6 grid grid-cols-2 border-b border-gray-100 pb-6">
     <label
       v-for="brand in uniqueBrands"
-      :key="uniqueBrands.indexOf(brand)"
+      :key="brand + route.params.category"
       class="mb-3 flex items-center text-sm font-normal leading-tight"
     >
       <input
