@@ -40,5 +40,11 @@ export const useShoppingCartStore = defineStore('shoppingCart', () => {
     }
   }
 
-  return { shoppingCart, count, add, remove }
+  function deleteItem(article: Article) {
+    shoppingCart.value = shoppingCart.value.filter(
+      item => item.id !== article.id,
+    )
+  }
+
+  return { shoppingCart, count, add, remove, deleteItem }
 })

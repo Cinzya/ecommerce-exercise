@@ -32,7 +32,7 @@ const store = useShoppingCartStore()
         <tr v-for="product in store.$state.shoppingCart" :key="product.id">
           <!-- Product -->
           <td class="flex items-center py-4 font-medium">
-            <Close @click="store.remove(product)" />
+            <Close @click="store.deleteItem(product)" />
             <img :src="product.image" :alt="product.name" class="mx-4 w-16" />
             {{ product.name }}
           </td>
