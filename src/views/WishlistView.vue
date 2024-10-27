@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useWishlistStore } from '@/stores/wishlist'
-import AddToCart from '@/components/AddToCartButton.vue'
+import Button from '@/components/ButtonComponent.vue'
 import Close from '@/components/CloseButton.vue'
 const store = useWishlistStore()
 </script>
@@ -41,7 +41,11 @@ const store = useWishlistStore()
           </td>
           <td class="h-full py-4">
             <div class="flex">
-              <AddToCart :product="product" />
+              <Button
+                variant="primary"
+                text="Add to Cart"
+                icon="ShoppingCartSimple"
+              />
               <Close @click="store.remove(product)" />
             </div>
           </td>
