@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useWishlistStore } from '@/stores/wishlist'
+import AddToCart from '@/components/AddToCartButton.vue'
+import Close from '@/components/CloseButton.vue'
+const store = useWishlistStore()
+</script>
 <template>
   <div
     class="mx-auto flex max-w-screen-xl flex-col overflow-hidden px-5 pt-4 lg:flex-row"
@@ -22,13 +28,23 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td class="px-6 py-5">
-            The Sliding Mr. Bones (Next Stop, Pottersville)
+      <tbody class="text-sm leading-tight">
+        <tr v-for="product in store.$state.wishlist" :key="product.id">
+          <td class="flex items-center px-6 py-4 font-medium">
+            <img :src="product.image" :alt="product.name" class="mr-4 w-16" />{{
+              product.name
+            }}
           </td>
-          <td>Malcolm Lockyer</td>
-          <td>1961</td>
+          <td>€{{ product.actual_price }}</td>
+          <td class="text-sm font-semibold leading-tight text-success-500">
+            IN STOCK
+          </td>
+          <td class="h-full py-4">
+            <div class="flex">
+              <AddToCart :product="product" />
+              <Close @click="store.remove(product)" />
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
