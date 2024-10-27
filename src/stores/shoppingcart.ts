@@ -3,7 +3,9 @@ import { defineStore } from 'pinia'
 
 export const useShoppingCartStore = defineStore('shoppingCart', () => {
   const shoppingCart = ref<CartItem[]>([])
-  const count = computed(() => shoppingCart.value.length)
+  const count = computed(() =>
+    shoppingCart.value.reduce((total, item) => total + (item.quantity || 0), 0),
+  )
   const totalPrice = computed(() =>
     shoppingCart.value.reduce(
       (total, item) => total + item.actual_price * item.quantity,
