@@ -1,10 +1,24 @@
 <script setup lang="ts">
+import { useWishlistStore } from '@/stores/wishlist'
+import { defineProps, computed } from 'vue'
 const props = defineProps<{
   article: Article
 }>()
+const store = useWishlistStore()
+
+const isOnWishlist = computed(() => {
+  return store.$state.wishlist.includes(props.article)
+})
+
+const toggleWishlist = () => {
+  if (isOnWishlist.value) {
+    store.remove(props.article)
+  } else {
+    store.add(props.article)
+  }
+}
 </script>
 <template>
-  <!-- Card -->
   <div
     class="w-full rounded-[3px] border-[2px] border-gray-100 bg-white p-4 transition-all duration-200 ease-in-out hover:shadow-card"
   >
@@ -14,19 +28,27 @@ const props = defineProps<{
       <div
         class="absolute right-0 top-0 flex h-full w-full items-center justify-between bg-black/20 px-4 opacity-0 transition-all duration-200 ease-in-out group-hover:opacity-100"
       >
+        <!-- Add to Wishlist -->
         <button
           class="group/heart flex h-11 w-11 items-center justify-center rounded-full bg-white hover:bg-primary-500"
+          @click="toggleWishlist"
         >
-          <PhHeart :size="24" class="group-hover/heart:text-white" />
+          <PhHeart
+            :size="24"
+            :weight="isOnWishlist ? 'fill' : 'regular'"
+            class="group-hover/heart:text-white"
+          />
         </button>
         <button
           class="group/cart flex h-11 w-11 items-center justify-center rounded-full bg-white hover:bg-primary-500"
         >
+          <!-- Add to Shopping Card -->
           <PhShoppingCartSimple
             :size="24"
             class="group-hover/cart:text-white"
           />
         </button>
+        <!-- Go To Product Page -->
         <button
           class="group/view flex h-11 w-11 items-center justify-center rounded-full bg-white hover:bg-primary-500"
         >
