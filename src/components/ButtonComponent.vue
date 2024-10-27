@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { defineProps, computed } from 'vue'
 const props = defineProps<{
-  variant: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'gray'
+  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'gray'
   outline?: boolean
-  text?: string
+  text: string
   icon?: string
   iconSize?: number
   iconAlign?: 'left' | 'right'
@@ -39,8 +39,11 @@ const color = computed(() => {
 </script>
 <template>
   <button
-    class="flex h-12 items-center px-6 text-sm font-bold uppercase leading-[48px] tracking-tight text-white"
-    :class="[color]"
+    class="flex h-12 items-center px-6 text-sm font-bold uppercase leading-[48px] tracking-tight"
+    :class="[
+      color,
+      { 'border-2': props.outline, 'text-white': !props.outline },
+    ]"
   >
     <component
       :is="'Ph' + props.icon"
@@ -53,7 +56,7 @@ const color = computed(() => {
       :is="'Ph' + props.icon"
       :size="iconSize ? iconSize : 20"
       class="ml-2"
-      v-if="props.icon"
+      v-if="props.icon && props.iconAlign !== 'left'"
     />
   </button>
 </template>
