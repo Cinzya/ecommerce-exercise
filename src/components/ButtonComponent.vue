@@ -4,6 +4,7 @@ const props = defineProps<{
   variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'gray'
   outline?: boolean
   type?: 'button' | 'link'
+  class?: string
 }>()
 const color = computed(() => {
   switch (props.variant) {
@@ -37,14 +38,14 @@ const color = computed(() => {
 <template>
   <component
     :is="props.type === 'link' ? 'div' : 'button'"
-    class="flex h-12 items-center px-6 text-sm font-bold uppercase leading-[48px] tracking-tight"
+    class="flex h-12 items-center justify-center text-nowrap px-6 text-sm font-bold uppercase leading-[48px] tracking-tight"
     :class="[
       color,
       {
         'border-2': props.outline,
         'text-white': !props.outline,
-        'max-w-[203px]': props.type === 'link',
       },
+      props.class,
     ]"
   >
     <slot />
