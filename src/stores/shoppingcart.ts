@@ -4,6 +4,12 @@ import { defineStore } from 'pinia'
 export const useShoppingCartStore = defineStore('shoppingCart', () => {
   const shoppingCart = ref<CartItem[]>([])
   const count = computed(() => shoppingCart.value.length)
+  const totalPrice = computed(() =>
+    shoppingCart.value.reduce(
+      (total, item) => total + item.actual_price * item.quantity,
+      0,
+    ),
+  )
 
   function findItem(articleId: string): CartItem | undefined {
     return shoppingCart.value.find(item => item.id === articleId)
@@ -46,5 +52,5 @@ export const useShoppingCartStore = defineStore('shoppingCart', () => {
     )
   }
 
-  return { shoppingCart, count, add, remove, deleteItem }
+  return { shoppingCart, count, totalPrice, add, remove, deleteItem }
 })
