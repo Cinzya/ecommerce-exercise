@@ -22,11 +22,13 @@ const store = useShoppingCartStore()
     >
       <div class="flex items-center">
         <PhList :size="28" class="mr-5 w-7 shrink-0 lg:hidden" />
-        <img
-          src="@/assets/logo.svg"
-          alt="Clicon Logo"
-          class="max-w-[177px] grow"
-        />
+        <RouterLink to="/">
+          <img
+            src="@/assets/logo.svg"
+            alt="Clicon Logo"
+            class="max-w-[177px] grow"
+          />
+        </RouterLink>
       </div>
       <SearchBar
         text="Search for anything..."
