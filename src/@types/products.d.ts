@@ -13,3 +13,7 @@ interface Article {
   rating: number
   reviews: number
 }
+
+interface CartItem extends Article {
+  quantity: number
+}
