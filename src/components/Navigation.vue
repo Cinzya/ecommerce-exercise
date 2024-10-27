@@ -33,7 +33,9 @@ import SearchBar from './SearchBar.vue'
       <div class="inline-flex flex-row items-start justify-start gap-6">
         <div class="relative">
           <!-- Shopping Card -->
-          <PhShoppingCartSimple :size="32" />
+          <RouterLink to="cart">
+            <PhShoppingCartSimple :size="32" />
+          </RouterLink>
           <div
             class="absolute -right-2 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-secondary-700 bg-white"
           >
