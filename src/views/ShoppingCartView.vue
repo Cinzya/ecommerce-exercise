@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Close from '@/components/CloseButton.vue'
+import Button from '@/components/ButtonComponent.vue'
 import { useShoppingCartStore } from '@/stores/shoppingcart'
 const store = useShoppingCartStore()
 </script>
@@ -60,6 +61,15 @@ const store = useShoppingCartStore()
           <td class="h-full py-4">
             €{{ product.actual_price * product.quantity }}
           </td>
+        </tr>
+        <tr class="border-1 border-t border-gray-100">
+          <td class="p-6">
+            <Button text="Return to shop" variant="secondary" :outline="true">
+              <PhArrowLeft :size="20" class="mr-2" />
+              Return to shop
+            </Button>
+          </td>
+          <td></td>
         </tr>
       </tbody>
     </table>

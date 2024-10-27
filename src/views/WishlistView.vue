@@ -39,13 +39,12 @@ const store = useWishlistStore()
           <td class="text-sm font-semibold leading-tight text-success-500">
             IN STOCK
           </td>
-          <td class="h-full py-4">
+          <td class="py-4">
             <div class="flex">
-              <Button
-                variant="primary"
-                text="Add to Cart"
-                icon="ShoppingCartSimple"
-              />
+              <Button variant="primary">
+                Add to Cart
+                <PhShoppingCartSimple :size="20" class="ml-2" />
+              </Button>
               <Close @click="store.remove(product)" />
             </div>
           </td>

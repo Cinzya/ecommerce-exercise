@@ -3,10 +3,6 @@ import { defineProps, computed } from 'vue'
 const props = defineProps<{
   variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'gray'
   outline?: boolean
-  text: string
-  icon?: string
-  iconSize?: number
-  iconAlign?: 'left' | 'right'
 }>()
 const color = computed(() => {
   switch (props.variant) {
@@ -45,18 +41,6 @@ const color = computed(() => {
       { 'border-2': props.outline, 'text-white': !props.outline },
     ]"
   >
-    <component
-      :is="'Ph' + props.icon"
-      :size="iconSize ? iconSize : 20"
-      class="mr-2"
-      v-if="props.icon && props.iconAlign === 'left'"
-    />
-    {{ props.text }}
-    <component
-      :is="'Ph' + props.icon"
-      :size="iconSize ? iconSize : 20"
-      class="ml-2"
-      v-if="props.icon && props.iconAlign !== 'left'"
-    />
+    <slot />
   </button>
 </template>
