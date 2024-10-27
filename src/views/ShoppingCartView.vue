@@ -6,15 +6,17 @@ const store = useShoppingCartStore()
 </script>
 <template>
   <div
-    class="mx-auto flex max-w-screen-xl flex-col overflow-hidden px-5 pt-4 lg:flex-row"
+    class="mx-auto grid max-w-screen-xl grid-cols-[3fr_1fr] gap-6 overflow-hidden px-5 pt-4"
   >
-    <table class="w-full table-auto rounded border border-gray-100 bg-white">
+    <table
+      class="h-min grow table-auto rounded border border-gray-100 bg-white"
+    >
       <thead>
         <tr class="text-left">
           <th
             class="px-6 py-5 text-lg font-medium leading-normal text-gray-900"
           >
-            Shopping Cart
+            <h1>Shopping Cart</h1>
           </th>
         </tr>
       </thead>
@@ -70,6 +72,7 @@ const store = useShoppingCartStore()
                 type="link"
                 :outline="true"
                 to="/home"
+                class="w-min"
               >
                 <PhArrowLeft :size="20" class="mr-2" />
                 Return to shop
@@ -80,6 +83,50 @@ const store = useShoppingCartStore()
         </tr>
       </tbody>
     </table>
-    <aside></aside>
+    <aside class="grow">
+      <div
+        class="flex w-full flex-col justify-center rounded border border-[#e4e7e9] bg-white p-5 pb-6"
+      >
+        <h2 class="mb-5 text-lg font-medium leading-normal">Card Totals</h2>
+        <div class="mb-3 flex justify-between">
+          <span class="text-sm font-normal leading-tight text-gray-600">
+            Sub Total
+          </span>
+          <span class="text-sm font-medium leading-tight text-gray-900">
+            €{{ (store.totalPrice * 0.79).toFixed(2) }}
+          </span>
+        </div>
+        <div class="mb-3 flex justify-between">
+          <span class="text-sm font-normal leading-tight text-gray-600">
+            Shipping
+          </span>
+          <span class="text-sm font-medium leading-tight text-gray-900">
+            Free
+          </span>
+        </div>
+        <div class="mb-3 flex justify-between">
+          <span class="text-sm font-normal leading-tight text-gray-600">
+            Tax
+          </span>
+          <span class="text-sm font-medium leading-tight text-gray-900">
+            €{{ (store.totalPrice * 0.21).toFixed(2) }}
+          </span>
+        </div>
+        <div class="mb-4 flex justify-between border-t border-gray-100 pt-4">
+          <span class="text-base font-normal leading-tight text-gray-900">
+            Total
+          </span>
+          <span class="text-base font-semibold leading-tight text-gray-900">
+            €{{ store.totalPrice }}
+          </span>
+        </div>
+        <div>
+          <Button variant="primary" type="link" :outline="false" to="/checkout">
+            <PhArrowRight :size="20" class="mr-2" />
+            Proceed to checkout
+          </Button>
+        </div>
+      </div>
+    </aside>
   </div>
 </template>
