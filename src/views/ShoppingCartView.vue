@@ -60,7 +60,7 @@ const store = useShoppingCartStore()
           </td>
           <!-- Subtotal -->
           <td class="h-full py-4">
-            €{{ product.actual_price * product.quantity }}
+            €{{ (product.actual_price * product.quantity).toFixed(2) }}
           </td>
         </tr>
         <tr class="border-1 border-t border-gray-100">
@@ -117,7 +117,7 @@ const store = useShoppingCartStore()
             Total
           </span>
           <span class="text-base font-semibold leading-tight text-gray-900">
-            €{{ store.totalPrice }}
+            €{{ store.totalPrice.toFixed(2) }}
           </span>
         </div>
         <div>
