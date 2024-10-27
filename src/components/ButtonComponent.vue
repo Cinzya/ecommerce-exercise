@@ -3,6 +3,7 @@ import { defineProps, computed } from 'vue'
 const props = defineProps<{
   variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'gray'
   outline?: boolean
+  type?: 'button' | 'link'
 }>()
 const color = computed(() => {
   switch (props.variant) {
@@ -34,13 +35,18 @@ const color = computed(() => {
 })
 </script>
 <template>
-  <button
+  <component
+    :is="props.type === 'link' ? 'div' : 'button'"
     class="flex h-12 items-center px-6 text-sm font-bold uppercase leading-[48px] tracking-tight"
     :class="[
       color,
-      { 'border-2': props.outline, 'text-white': !props.outline },
+      {
+        'border-2': props.outline,
+        'text-white': !props.outline,
+        'max-w-[203px]': props.type === 'link',
+      },
     ]"
   >
     <slot />
-  </button>
+  </component>
 </template>

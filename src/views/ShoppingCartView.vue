@@ -14,7 +14,7 @@ const store = useShoppingCartStore()
           <th
             class="px-6 py-5 text-lg font-medium leading-normal text-gray-900"
           >
-            Wishlist
+            Shopping Cart
           </th>
         </tr>
       </thead>
@@ -33,9 +33,8 @@ const store = useShoppingCartStore()
           <!-- Product -->
           <td class="flex items-center py-4 font-medium">
             <Close @click="store.remove(product)" />
-            <img :src="product.image" :alt="product.name" class="mx-4 w-16" />{{
-              product.name
-            }}
+            <img :src="product.image" :alt="product.name" class="mx-4 w-16" />
+            {{ product.name }}
           </td>
           <!-- Price -->
           <td>€{{ product.actual_price }}</td>
@@ -64,10 +63,18 @@ const store = useShoppingCartStore()
         </tr>
         <tr class="border-1 border-t border-gray-100">
           <td class="p-6">
-            <Button text="Return to shop" variant="secondary" :outline="true">
-              <PhArrowLeft :size="20" class="mr-2" />
-              Return to shop
-            </Button>
+            <RouterLink to="/home">
+              <Button
+                text="Return to shop"
+                variant="secondary"
+                type="link"
+                :outline="true"
+                to="/home"
+              >
+                <PhArrowLeft :size="20" class="mr-2" />
+                Return to shop
+              </Button>
+            </RouterLink>
           </td>
           <td></td>
         </tr>
