@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useWishlistStore } from '@/stores/wishlist'
+import { useShoppingCartStore } from '@/stores/shoppingcart'
 import Button from '@/components/ButtonComponent.vue'
 import Close from '@/components/CloseButton.vue'
-const store = useWishlistStore()
+const store = { wishlist: useWishlistStore(), cart: useShoppingCartStore() }
 </script>
 <template>
   <div
@@ -29,7 +30,7 @@ const store = useWishlistStore()
         </tr>
       </thead>
       <tbody class="text-sm leading-tight">
-        <tr v-for="product in store.$state.wishlist" :key="product.id">
+        <tr v-for="product in store.wishlist.$state.wishlist" :key="product.id">
           <td class="flex items-center px-6 py-4 font-medium">
             <img :src="product.image" :alt="product.name" class="mr-4 w-16" />{{
               product.name
@@ -41,11 +42,11 @@ const store = useWishlistStore()
           </td>
           <td class="py-4">
             <div class="flex">
-              <Button variant="primary">
+              <Button variant="primary" @click="store.cart.add(product)">
                 Add to Cart
                 <PhShoppingCartSimple :size="20" class="ml-2" />
               </Button>
-              <Close @click="store.remove(product)" />
+              <Close @click="store.wishlist.remove(product)" />
             </div>
           </td>
         </tr>
