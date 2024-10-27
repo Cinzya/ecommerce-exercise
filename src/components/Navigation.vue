@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SearchBar from './SearchBar.vue'
+import { useShoppingCartStore } from '@/stores/shoppingcart'
+const store = useShoppingCartStore()
 </script>
 <template>
   <header class="bg-secondary-700 text-white">
@@ -39,8 +41,9 @@ import SearchBar from './SearchBar.vue'
           <div
             class="absolute -right-2 -top-1.5 flex h-6 w-6 items-center justify-center rounded-full border-2 border-secondary-700 bg-white"
           >
-            <span class="text-xs font-semibold leading-none text-secondary-700"
-              >3</span
+            <span
+              class="text-xs font-semibold leading-none text-secondary-700"
+              >{{ store.count }}</span
             >
           </div>
         </div>
