@@ -35,20 +35,28 @@ const store = { wishlist: useWishlistStore(), cart: useShoppingCartStore() }
         <tr
           v-for="product in store.wishlist.$state.wishlist"
           :key="product.id"
-          class="border-1 flex flex-col items-start border border-gray-100 px-6 sm:table-row sm:border-none"
+          class="border-1 grid grid-cols-2 grid-rows-[min-content_min-content_min-content] border border-gray-100 px-6 sm:table-row sm:border-none"
         >
-          <td class="flex items-center py-4 font-medium sm:px-6">
+          <td
+            class="col-start-1 col-end-3 flex items-center py-4 font-medium sm:px-6"
+          >
             <img :src="product.image" :alt="product.name" class="mr-4 w-16" />{{
               product.name
             }}
           </td>
-          <td>€{{ product.actual_price }}</td>
-          <td
-            class="text-sm font-semibold leading-tight text-success-500 sm:pl-6"
-          >
-            IN STOCK
+          <td class="flex flex-wrap uppercase sm:table-cell">
+            <span class="mr-6 text-gray-700 sm:hidden">Price:</span>
+            <span>€{{ product.actual_price }}</span>
           </td>
-          <td class="w-full py-4 sm:w-auto">
+          <td
+            class="flex flex-wrap text-sm font-semibold uppercase leading-tight sm:table-cell sm:pl-6"
+          >
+            <span class="mr-6 font-normal text-gray-700 sm:hidden"
+              >Stock Status:</span
+            >
+            <span class="text-success-500">IN STOCK</span>
+          </td>
+          <td class="col-start-1 col-end-3 w-full py-4 sm:w-auto">
             <div class="flex">
               <Button
                 variant="primary"
