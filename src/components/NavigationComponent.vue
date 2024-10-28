@@ -58,7 +58,7 @@ const store = useShoppingCartStore()
       </div>
     </nav>
     <!-- Bottom Nav -->
-    <nav class="hidden h-20 items-center bg-white text-gray-600 lg:flex">
+    <!-- <nav class="hidden h-20 items-center bg-white text-gray-600 lg:flex">
       <div class="mx-auto flex w-full max-w-screen-xl justify-between px-5">
         <ul class="flex h-full items-center justify-start">
           <li
@@ -83,6 +83,6 @@ const store = useShoppingCartStore()
           <PhPhoneCall :size="28" class="mr-2.5" /> +1-202-555-0104
         </a>
       </div>
-    </nav>
+    </nav> -->
   </header>
 </template>
