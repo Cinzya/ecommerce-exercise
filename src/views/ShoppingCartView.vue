@@ -78,13 +78,12 @@ const store = useShoppingCartStore()
         </tr>
         <tr class="border-1 border-t border-gray-100">
           <td class="p-6">
-            <RouterLink to="/home">
+            <RouterLink to="/0">
               <Button
                 text="Return to shop"
                 variant="secondary"
                 type="link"
                 :outline="true"
-                to="/home"
                 class="w-min"
               >
                 <PhArrowLeft :size="20" class="mr-2" />
