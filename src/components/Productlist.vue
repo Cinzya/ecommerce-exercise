@@ -25,13 +25,11 @@ const filterArticlesByPrice = (
 }
 
 const filteredArticles = computed(() => {
-  let articles
+  let articles = fictionalArticles
 
   // Category filter
-  articles = filterArticlesByCategory(
-    fictionalArticles,
-    Number(route.params.category),
-  )
+  if (route.name !== 'home' && route.params.category !== '0')
+    articles = filterArticlesByCategory(articles, Number(route.params.category))
 
   // Price filter
   if (
