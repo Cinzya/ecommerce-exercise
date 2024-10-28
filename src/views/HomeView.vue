@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CategorySidebar from '@/components/CategorySidebar.vue'
+import CategorySidebar from '@/components/CategoryFilter.vue'
 import FilterModal from '@/components/FilterModal.vue'
 import PriceRange from '@/components/PriceFilter.vue'
 import BrandFilter from '@/components/BrandFilter.vue'

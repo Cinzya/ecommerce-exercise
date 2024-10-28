@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useModalStore } from '@/stores/modal'
-import CategorySidebar from './CategorySidebar.vue'
+import CategorySidebar from './CategoryFilter.vue'
 import PriceFilter from './PriceFilter.vue'
 import BrandFilter from './BrandFilter.vue'
 const store = useModalStore()

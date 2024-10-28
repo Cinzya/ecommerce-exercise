@@ -37,6 +37,8 @@ function setPriceRange(min: number, max: number) {
     />
   </div>
 
+  <!-- TODO: Add dual range slider here -->
+
   <div class="mb-6 mt-3 flex flex-col border-b border-gray-100 pb-6">
     <label
       v-for="range in predefinedRanges"
@@ -48,7 +50,7 @@ function setPriceRange(min: number, max: number) {
         type="radio"
         :id="range.label"
         name="range-radio"
-        @input="setPriceRange(range.min, range.max)"
+        @input="setPriceRange(range.min ?? 0, range.max ?? 5000)"
         :checked="
           filterStore.$state.priceRange.min === range.min &&
           filterStore.$state.priceRange.max === range.max
