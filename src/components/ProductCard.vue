@@ -23,11 +23,15 @@ const toggleWishlist = () => {
 <template>
   <!-- TODO: Modal to visually confirm that product was added to basket after clicking on the Cart button -->
   <div
-    class="w-full rounded-[3px] border-[2px] border-gray-100 bg-white p-4 transition-all duration-200 ease-in-out hover:shadow-card"
+    class="h-full w-full rounded-[3px] border-[2px] border-gray-100 bg-white p-4 transition-all duration-200 ease-in-out hover:shadow-card"
   >
     <!-- Thumbnail -->
     <div class="group relative">
-      <img :src="props.article.image" :alt="props.article.name" class="mb-4" />
+      <img
+        :src="props.article.image"
+        :alt="props.article.name"
+        class="mb-4 w-full"
+      />
       <div
         class="absolute right-0 top-0 hidden h-full w-full items-center justify-between bg-black/20 px-4 opacity-0 transition-all duration-200 ease-in-out group-hover:opacity-100 lg:flex"
       >

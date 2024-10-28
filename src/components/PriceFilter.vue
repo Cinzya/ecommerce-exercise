@@ -50,7 +50,7 @@ function setPriceRange(min: number, max: number) {
         type="radio"
         :id="range.label"
         name="range-radio"
-        @input="setPriceRange(range.min ?? 0, range.max ?? 5000)"
+        @change="setPriceRange(range.min, range.max)"
         :checked="
           filterStore.$state.priceRange.min === range.min &&
           filterStore.$state.priceRange.max === range.max
