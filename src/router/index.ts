@@ -15,19 +15,19 @@ const router = createRouter({
         {
           path: ':category',
           name: 'category',
-          component: () => Productlist,
+          component: Productlist,
         },
       ],
     },
     {
       path: '/wishlist',
       name: 'wishlist',
-      component: () => WishlistView,
+      component: WishlistView,
     },
     {
       path: '/cart',
       name: 'cart',
-      component: () => ShoppingCart,
+      component: ShoppingCart,
     },
   ],
 })
