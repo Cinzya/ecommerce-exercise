@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useWishlistStore } from '@/stores/wishlist'
 import { useShoppingCartStore } from '@/stores/shoppingcart'
+import Button from '@/components/ButtonComponent.vue'
 import { defineProps, computed } from 'vue'
 const props = defineProps<{
   article: Article
@@ -27,7 +28,7 @@ const toggleWishlist = () => {
     <div class="group relative">
       <img :src="props.article.image" :alt="props.article.name" class="mb-4" />
       <div
-        class="absolute right-0 top-0 flex h-full w-full items-center justify-between bg-black/20 px-4 opacity-0 transition-all duration-200 ease-in-out group-hover:opacity-100"
+        class="absolute right-0 top-0 hidden h-full w-full items-center justify-between bg-black/20 px-4 opacity-0 transition-all duration-200 ease-in-out group-hover:opacity-100 lg:flex"
       >
         <!-- Add to Wishlist -->
         <button
@@ -56,7 +57,6 @@ const toggleWishlist = () => {
         >
           <PhEye :size="24" class="group-hover/view:text-white" />
         </button>
-        <!-- TODO: Add onClick event to each button + components / routes for each action -->
       </div>
     </div>
     <!-- Rating -->
@@ -81,5 +81,23 @@ const toggleWishlist = () => {
     <span class="text-sm font-semibold leading-tight text-secondary-500">
       €{{ props.article.msrp }}
     </span>
+    <div class="mt-5 lg:hidden">
+      <Button
+        class="w-full"
+        variant="danger"
+        :outline="true"
+        @click="toggleWishlist"
+      >
+        <PhHeart :size="24" :weight="isOnWishlist ? 'fill' : 'regular'" />
+      </Button>
+      <Button
+        variant="primary"
+        @click="store.cart.add(props.article)"
+        class="mt-3 w-full"
+      >
+        Add to Cart
+        <PhShoppingCartSimple :size="20" class="ml-2" />
+      </Button>
+    </div>
   </div>
 </template>
