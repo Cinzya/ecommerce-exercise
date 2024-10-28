@@ -6,7 +6,7 @@ const store = useShoppingCartStore()
 </script>
 <template>
   <div
-    class="mx-auto grid max-w-screen-xl grid-cols-[3fr_1fr] gap-6 overflow-hidden px-5 pt-4"
+    class="mx-auto grid max-w-screen-xl grid-cols-1 gap-6 overflow-hidden px-5 pt-4 lg:grid-cols-[3fr_1fr]"
   >
     <table
       class="h-min grow table-auto rounded border border-gray-100 bg-white"
@@ -14,7 +14,7 @@ const store = useShoppingCartStore()
       <thead>
         <tr class="text-left">
           <th
-            class="px-6 py-5 text-lg font-medium leading-normal text-gray-900"
+            class="border-gray-100 px-6 py-5 text-lg font-medium leading-normal text-gray-900"
           >
             <h1>Shopping Cart</h1>
           </th>
@@ -22,7 +22,7 @@ const store = useShoppingCartStore()
       </thead>
       <thead>
         <tr
-          class="border-b border-t border-gray-100 bg-gray-50 text-left text-xs font-medium uppercase text-gray-700"
+          class="hidden border-b border-t border-gray-100 bg-gray-50 text-left text-xs font-medium uppercase text-gray-700 sm:table-row"
         >
           <th class="px-6 py-5">Products</th>
           <th>Price</th>
@@ -31,19 +31,28 @@ const store = useShoppingCartStore()
         </tr>
       </thead>
       <tbody class="text-sm leading-tight">
-        <tr v-for="product in store.$state.shoppingCart" :key="product.id">
+        <tr
+          v-for="product in store.$state.shoppingCart"
+          :key="product.id"
+          class="grid-rows-[repeat(4, min-content)] grid grid-cols-2 border border-gray-100 sm:table-row sm:border-none"
+        >
           <!-- Product -->
-          <td class="flex items-center py-4 font-medium">
-            <Close @click="store.deleteItem(product)" />
+          <td class="flex w-full items-center py-4 font-medium">
+            <Close @click="store.deleteItem(product)" class="hidden sm:block" />
             <img :src="product.image" :alt="product.name" class="mx-4 w-16" />
             {{ product.name }}
           </td>
           <!-- Price -->
-          <td>€{{ product.actual_price }}</td>
+          <td class="mx-4 flex items-center uppercase sm:table-cell">
+            <span class="mr-6 text-gray-700 sm:hidden">Price:</span>
+            <span> €{{ product.actual_price }} </span>
+          </td>
           <!-- Quantity -->
-          <td class="text-sm font-semibold leading-tight">
+          <td
+            class="col-start-2 col-end-3 row-start-1 row-end-2 flex justify-end text-sm font-semibold leading-tight sm:table-cell"
+          >
             <div
-              class="inline-flex h-12 w-[148px] items-center justify-between rounded-[3px] border border-gray-100 bg-white px-5 py-3"
+              class="m-4 inline-flex h-12 w-[148px] items-center justify-between rounded-[3px] border border-gray-100 bg-white px-5 py-3"
             >
               <button @click="store.remove(product)">
                 <PhMinus :size="16" />
@@ -59,8 +68,12 @@ const store = useShoppingCartStore()
             </div>
           </td>
           <!-- Subtotal -->
-          <td class="h-full py-4">
-            €{{ (product.actual_price * product.quantity).toFixed(2) }}
+          <td
+            class="col-start-2 col-end-3 row-start-2 row-end-3 h-full py-4 uppercase"
+          >
+            <span class="mr-6 text-gray-700 sm:hidden">Sub Total:</span>€{{
+              (product.actual_price * product.quantity).toFixed(2)
+            }}
           </td>
         </tr>
         <tr class="border-1 border-t border-gray-100">
