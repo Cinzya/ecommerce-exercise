@@ -42,6 +42,7 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-#      - name: Deploy to Coolify
-#        run: |
-#          curl --request GET '${{ secrets.COOLIFY_WEBHOOK }}' --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}'
+
+      - name: Deploy to Coolify
+        run: |
+          curl --request GET '${{ secrets.COOLIFY_WEBHOOK }}' --header 'Authorization: Bearer ${{ secrets.COOLIFY_TOKEN }}'
